@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<style>
+.footer {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	background-color: white;
+	color: blue;
+	text-align: center;
+}
+</style>
+</head>
+<body>
+	<div class="container">
+		<nav class="navbar navbar-expand-lg bg-body-tertiary">
+			<div class="container-fluid">
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+						<li class="nav-item"><a class="nav-link active"
+							aria-current="page" href="/">Home</a></li>
+						<li class="nav-item"><a class="nav-link" href="/register">Register</a></li>
+						<li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</div>
+	<hr />
+	<div>
+	<p th:text="${msg}" class="text-success"></p>
+		<p th:text="${err}" class="text-danger"></p>
+		<form th:action="@{/register}" th:object="${form}" th:method="POST">
+			<p>Please create account here</p>
+
+			<div class="form-outline mb-4">
+			    <label>fName</label>
+				<input type="text" th:field="*{fname}" /> 
+			</div>
+			<div class="form-outline mb-4">
+			<label>lName</label>
+				<input type="text"  th:field="*{lname}" /> 
+			</div>
+
+			<div class="form-outline mb-4">
+			    <label >Email</label>
+				<input type="text" th:field="*{email}" /> 
+			</div>
+
+			<div class="form-outline mb-4">
+			<label >password</label>
+				<input type="text" th:field="*{pwd}" /> 
+			</div>
+
+			<div class="text-center pt-1 mb-5 pb-1">
+				<input type="submit" value="Register"
+					class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" />
+			</div>
+
+			<div class="d-flex align-items-center justify-content-center pb-4">
+				<p class="mb-0 me-2">Do You have an account?</p>
+				<a href="login" type="button" class="btn btn-outline-danger">Login
+					Here</a>
+			</div>
+
+		</form>
+	</div>
+</body>
+</html>
